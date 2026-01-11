@@ -27,6 +27,7 @@ export class UsersService {
         email: dto.email,
         phoneNumber: dto.phoneNumber,
         password: hashed,
+        role: dto.role,
       },
     });
 
@@ -34,7 +35,21 @@ export class UsersService {
       id: user.id,
       email: user.email,
       name: user.name,
+      role: user.role,
       createdAt: user.createdAt,
     };
+  }
+
+  // src/users/users.service.ts
+  async findSafeById(id: number) {
+    return this.prisma.user.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+      },
+    });
   }
 }
