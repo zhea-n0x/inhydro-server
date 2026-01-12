@@ -4,7 +4,7 @@ import { RegisterDto } from './dto/register.dto';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Roles } from 'src/auth/roles.decorator';
-import { Role } from 'src/auth/roles.enum';
+import { Role } from 'src/enums/roles.enum';
 import { RolesGuard } from 'src/auth/roles.guard';
 
 @Controller('users')
