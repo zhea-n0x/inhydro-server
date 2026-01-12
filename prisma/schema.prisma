@@ -22,3 +22,13 @@ model User{
   role String
   createdAt DateTime @default(now())
 }
+
+model Actuator{
+  id Int @id @default(autoincrement())
+  key String
+  name String
+  type String
+  state Boolean
+  createdAt DateTime @default(now())
+  lastCommandedAt DateTime @default(now())
+}
